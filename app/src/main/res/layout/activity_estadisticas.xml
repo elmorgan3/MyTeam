@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.morga.myteam.EstadisticasActivity"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="32dp" />
+
+    <Chronometer
+        android:id="@+id/chronometer2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="197dp"
+        tools:layout_editor_absoluteY="32dp" />
+
+    <Button
+        android:id="@+id/button19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Empezar"
+        tools:layout_editor_absoluteX="307dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <Button
+        android:id="@+id/button21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gol"
+        tools:layout_editor_absoluteY="219dp"
+        tools:layout_editor_absoluteX="29dp" />
+
+    <Button
+        android:id="@+id/button22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gol penalti"
+        tools:layout_editor_absoluteY="219dp"
+        tools:layout_editor_absoluteX="146dp" />
+
+    <Button
+        android:id="@+id/button24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gol falta"
+        tools:layout_editor_absoluteY="219dp"
+        tools:layout_editor_absoluteX="285dp" />
+
+    <Button
+        android:id="@+id/button23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gol pp"
+        tools:layout_editor_absoluteY="277dp"
+        tools:layout_editor_absoluteX="29dp" />
+
+    <Button
+        android:id="@+id/button30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Asistencia"
+        tools:layout_editor_absoluteY="277dp"
+        tools:layout_editor_absoluteX="154dp" />
+
+    <Button
+        android:id="@+id/button26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tiro"
+        tools:layout_editor_absoluteY="331dp"
+        tools:layout_editor_absoluteX="29dp" />
+
+    <Button
+        android:id="@+id/button31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tiro puerta"
+        tools:layout_editor_absoluteY="331dp"
+        tools:layout_editor_absoluteX="150dp" />
+
+    <Button
+        android:id="@+id/button29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Corner"
+        tools:layout_editor_absoluteY="331dp"
+        tools:layout_editor_absoluteX="293dp" />
+
+    <Button
+        android:id="@+id/button33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pase"
+        tools:layout_editor_absoluteY="387dp"
+        tools:layout_editor_absoluteX="29dp" />
+
+    <Button
+        android:id="@+id/button28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pase fallido"
+        tools:layout_editor_absoluteY="387dp"
+        tools:layout_editor_absoluteX="147dp" />
+
+    <Button
+        android:id="@+id/button39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Robo"
+        tools:layout_editor_absoluteY="387dp"
+        tools:layout_editor_absoluteX="294dp" />
+
+    <Button
+        android:id="@+id/button32"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:text="Mano"
+        tools:layout_editor_absoluteY="443dp"
+        tools:layout_editor_absoluteX="294dp" />
+
+    <Button
+        android:id="@+id/button34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fuera de juego"
+        tools:layout_editor_absoluteY="443dp"
+        tools:layout_editor_absoluteX="138dp" />
+
+    <Button
+        android:id="@+id/button35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tarjeta Amarilla"
+        tools:layout_editor_absoluteY="499dp"
+        tools:layout_editor_absoluteX="29dp" />
+
+    <Button
+        android:id="@+id/button36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cambio"
+        tools:layout_editor_absoluteX="294dp"
+        tools:layout_editor_absoluteY="555dp" />
+
+    <Button
+        android:id="@+id/button37"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Falta"
+        tools:layout_editor_absoluteY="443dp"
+        tools:layout_editor_absoluteX="29dp" />
+
+    <Button
+        android:id="@+id/button38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Parada"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="555dp" />
+
+    <Button
+        android:id="@+id/button40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tarjeta Roja"
+        tools:layout_editor_absoluteY="499dp"
+        tools:layout_editor_absoluteX="257dp" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="380dp"
+        android:layout_height="140dp"
+        tools:layout_editor_absoluteY="72dp"
+        tools:layout_editor_absoluteX="15dp" />
+
+</android.support.constraint.ConstraintLayout>
