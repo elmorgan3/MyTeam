@@ -6,9 +6,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 
 public class MiFragmentPagerAdapter extends FragmentPagerAdapter {
-    final int PAGE_COUNT = 2;
+    final int PAGE_COUNT = 3;
     private String  tabTitles[] = new String[] {
-            "Entreno", "Partido"
+            "Equipo", "Entreno", "Partido"
     };
 
     public MiFragmentPagerAdapter(FragmentManager fm) {
@@ -27,10 +27,14 @@ public class MiFragmentPagerAdapter extends FragmentPagerAdapter {
 
         switch(position) {
             case 0:
-                f = FragmentEntreno.newInstance();
+                f = FragmentEquipo.newInstance();
                 break;
 
             case 1:
+                f = FragmentEntreno.newInstance();
+                break;
+
+            case 2:
                 f = FragmentPartido.newInstance();
                 break;
         }

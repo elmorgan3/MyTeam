@@ -18,4 +18,5 @@
     <string name="fecha_partido">Fecha del partido</string>
     <string name="tiro">Tiro</string>
     <string name="tiro_puerta">Tiro puerta</string>
+    <string name="newEquipo">Añadir nuevo equipo</string>
 </resources>

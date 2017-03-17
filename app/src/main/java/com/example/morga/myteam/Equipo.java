@@ -8,19 +8,23 @@ public class Equipo
 {
 
     private String nombreEquipo;
-    private String logo;
+    private String categoriaEquipo;
+    private String logoEquipo;
 
-    public Equipo (String nombreEquipo, String logo)
+    public Equipo (String nombreEquipo, String categoriaEquipo, String logoEquipo)
     {
         this.nombreEquipo = nombreEquipo;
-        this.logo = logo;
+        this.categoriaEquipo = categoriaEquipo;
+        this.logoEquipo = logoEquipo;
     }
 
     public String getNombreEquipo() { return nombreEquipo; }
-    public String getLogo() { return logo; }
+    public String getCategoriaEquipo() { return categoriaEquipo; }
+    public String getLogoEquipo() { return logoEquipo; }
 
     public void setNombreEquipo(String nombreEquipo) { this.nombreEquipo=nombreEquipo; }
-    public void setLogo (String logo) { this.logo=logo; }
+    public void setCategoriaEquipo(String categoriaEquipo) { this.categoriaEquipo=categoriaEquipo; }
+    public void setLogoEquipo (String logoEquipo) { this.logoEquipo=logoEquipo; }
 
 
 }

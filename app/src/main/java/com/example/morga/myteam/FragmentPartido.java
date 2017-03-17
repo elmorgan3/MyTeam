@@ -30,6 +30,7 @@ public class FragmentPartido extends Fragment implements View.OnClickListener {
         super.onCreate(savedInstanceState);
 
 
+
  }
 
     @Override
