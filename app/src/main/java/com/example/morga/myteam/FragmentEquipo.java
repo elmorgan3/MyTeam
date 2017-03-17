@@ -2,7 +2,6 @@ package com.example.morga.myteam;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -71,7 +69,7 @@ public class FragmentEquipo extends Fragment {
                 bundle.putString("titulo",tituloMonumentoSeleccionado);
                 bundle.putString("imagen",imagenMonumentoSeleccionado);
 
-                Intent intent = new Intent(getActivity(), ActivityEditar.class);
+                Intent intent = new Intent(getActivity(), EditarActivity.class);
 
                 intent.putExtras(bundle);
 

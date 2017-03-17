@@ -20,7 +20,7 @@
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".EstadisticasActivity" />
-        <activity android:name=".ActivityEditar"></activity>
+        <activity android:name=".EditarActivity"></activity>
     </application>
 
 </manifest>
