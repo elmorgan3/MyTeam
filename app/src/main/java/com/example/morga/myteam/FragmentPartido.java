@@ -52,7 +52,7 @@ public class FragmentPartido extends Fragment implements View.OnClickListener {
         btnEmpezarPartido.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), EstadisticasActivity2.class);
+                Intent intent = new Intent(getActivity(), EstadisticasActivity.class);
 
                 startActivity(intent);
             }

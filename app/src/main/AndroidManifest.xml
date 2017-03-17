@@ -16,11 +16,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".EstadisticasActivity2" />
-        <activity android:name=".EstadisticasActivity" />
+        <activity android:name=".EstadisticasActivity3" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".EstadisticasActivity"></activity>
     </application>
 
 </manifest>
