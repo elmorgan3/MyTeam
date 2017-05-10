@@ -4,232 +4,601 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
     android:orientation="vertical"
     tools:context="com.example.morga.myteam.EstadisticasActivity">
+
+    <include
+        layout="@layout/app_bar_main"
+        layout_width="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
         android:gravity="center_horizontal|center"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/textViewParte"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TextView" />
+            android:text="1ª Parte"
+            android:textColor="@android:color/black" />
 
         <Chronometer
             android:id="@+id/chronometer3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/buttonEmpezar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="EmpezarPartido"
+            android:text="Empezar" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gol: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewGol"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gol penati: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewGolPenalti"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gol falta: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewGolFalta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gol PP: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewGolPP"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewEnContra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Gol en contra: " />
+
+            <TextView
+                android:id="@+id/textViewGolEnContra"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Asistencia: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewAsistencia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView35"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tiro: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewTiro"
+                android:layout_width="76dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textView37"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tiro a puerta: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewTiroPuerta"
+                android:layout_width="43dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textView39"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Corner: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewCorner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pase: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewPase"
+                android:layout_width="69dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pase fallido: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewPaseFallido"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textView34"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Robo: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewRobo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/textView49"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Falta: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewFalta"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textView51"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fuera de jugeo: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewFueraJuego"
+                android:layout_width="29dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textView53"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mano: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewMano"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView45"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tarjeta roja: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewTarjetaRoja"
+                android:layout_width="161dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textView47"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="T. amarilla: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewTarjetaAmarilla"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView41"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Parada: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewParada"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textView43"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cambio: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewCambio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonGol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Gol"
+            android:text="Gol" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button20"
+            android:id="@+id/buttonGolPenalti"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Button" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <ListView
-            android:id="@+id/list"
-            android:layout_width="wrap_content"
-            android:layout_height="143dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="5dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/button42"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Gol" />
-
-        <Button
-            android:id="@+id/button41"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:onClick="GolPenalti"
             android:text="Gol penalti" />
 
-        <Button
-            android:id="@+id/button27"
+        <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/buttonGolFalta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="GolFalta"
             android:text="Gol falta" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
         android:layout_weight="1"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button25"
+            android:id="@+id/buttonGolPP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:onClick="GolPP"
             android:text="Gol PP" />
 
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2.01" />
+
         <Button
-            android:id="@+id/button45"
+            android:id="@+id/buttonGolEnContra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:onClick="GolEnContra"
+            android:text="Gol en contra"
+            android:textSize="12sp" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/buttonAsistencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Asistencia"
             android:text="Asistencia" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
         android:layout_weight="1"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button43"
+            android:id="@+id/buttonTiro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:onClick="Tiro"
             android:text="tiro" />
 
-        <Button
-            android:id="@+id/button44"
+        <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/tiro_puerta" />
+            android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button46"
+            android:id="@+id/buttonTiroPuerta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:onClick="TiroPuerta"
+            android:text="@string/tiro_puerta" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/buttonCorner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Corner"
             android:text="Corner" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
         android:layout_weight="1"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button49"
+            android:id="@+id/buttonPase"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:onClick="Pase"
             android:text="Pase" />
 
-        <Button
-            android:id="@+id/button48"
+        <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Pase fallido" />
+            android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button47"
+            android:id="@+id/buttonPaseFallido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:onClick="PaseFallido"
+            android:text="Pase fallido" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/buttonRobo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Robo"
             android:text="Robo" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
         android:layout_weight="1"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button52"
+            android:id="@+id/buttonFalta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:onClick="Falta"
             android:text="Falta" />
 
-        <Button
-            android:id="@+id/button51"
+        <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Fuera de juego" />
+            android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button50"
+            android:id="@+id/buttonFueraJuego"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:onClick="FueraDeJuego"
+            android:text="Fuera de juego" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/buttonMano"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Mano"
             android:text="Mano" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
         android:layout_weight="1"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button54"
+            android:id="@+id/buttonTarjataRoja"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Tajeta amarillo" />
+            android:onClick="TarjetaRoja"
+            android:text="Tarjeta roja" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button53"
+            android:id="@+id/buttonTarjetaAmarilla"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Tarjeta rojo" />
+            android:onClick="TarjetaAmarilla"
+            android:text="Tarjeta amarilla" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
         android:layout_weight="1"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button56"
+            android:id="@+id/buttonParada"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:onClick="Parada"
             android:text="Parada" />
 
-        <Button
-            android:id="@+id/button55"
+        <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/buttonCambio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Cambio"
             android:text="Cambio" />
     </LinearLayout>
 

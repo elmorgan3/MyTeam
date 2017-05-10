@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
+    static String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +25,10 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // Recojo lo que me hayan mandado por el bundle
+        Bundle b = getIntent().getExtras();
 
-
+        token = b.getString("Token");
 
 
         //Asociamos el ViewPager para poder movernos entre los fragments
@@ -38,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
     }
 
+    public static String DevolverToken (){
+        return token;
+    }
 
 
     @Override

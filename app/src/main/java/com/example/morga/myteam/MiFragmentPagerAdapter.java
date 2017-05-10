@@ -10,9 +10,11 @@ public class MiFragmentPagerAdapter extends FragmentPagerAdapter {
     private String  tabTitles[] = new String[] {
             "Equipo", "Entreno", "Partido"
     };
+    String token;
 
     public MiFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
+
     }
 
     @Override

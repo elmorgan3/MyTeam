@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Xml;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +14,25 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import cz.msebera.android.httpclient.Header;
 
 
 public class FragmentEquipo extends Fragment {
 
     ListView lstEquipo;
+    String token;
 
     public FragmentEquipo() {
         // Required empty public constructor
@@ -32,50 +47,135 @@ public class FragmentEquipo extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        token = MainActivity.DevolverToken();
     }
 
-    //*****
+    //--------------------------------
     // Metodo para Cambiar de Activity
-    //*****
+    //--------------------------------
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Voy a añadir los items de la lista
-        Equipo[] datos = new Equipo[]{
-                new Equipo("Real Betis", "Primera Division", "real_betis"),
-        };
+        AsyncHttpClient client = new AsyncHttpClient();
 
-        MiAdapter adapterEquipo = new MiAdapter(getActivity(), datos);
+        client.addHeader("Token", token);
+        // Generamos la URL
+        client.get("http://apimyfootballteamnuevawebapp.azurewebsites.net/API/Equipos",  new AsyncHttpResponseHandler() {
 
-        lstEquipo = (ListView) view.findViewById(R.id.listViewEquipo);
-
-        lstEquipo.setAdapter(adapterEquipo);
-
-        // Este metodo es para saber en que item de la lista han clicado y muestra un toast montrandolo
-        lstEquipo.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
             @Override
-            public void onItemClick(AdapterView<?> a, View v, int position, long id)
-            {
-                // Procedo a coger el titulo del elemento de la lista seleccionado,
-                // y a enviarlo a la activity de pregunta para cargar la pregunta
-                String tituloMonumentoSeleccionado = ((Equipo)a.getItemAtPosition(position)).getNombreEquipo();
-                String imagenMonumentoSeleccionado = ((Equipo)a.getItemAtPosition(position)).getLogoEquipo();
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                //int idEquipo = -1;
 
+                List<Equipo> listEquipos = new ArrayList<Equipo>();
 
-                Bundle bundle = new Bundle();
+                JSONObject temps = null;
+                JSONArray arrayEquipos = new JSONArray();
+                JSONObject equipo = new JSONObject();
 
-                bundle.putString("titulo",tituloMonumentoSeleccionado);
-                bundle.putString("imagen",imagenMonumentoSeleccionado);
+                String str = new String(responseBody);
 
-                Intent intent = new Intent(getActivity(), EditarActivity.class);
+                try
+                {
+                    //Declaramos un objeto de la clase JSONArray y metemos la respuesta para despues
+                    // recorrer todos los objetos del Json e ir metiendolos en un objeto de la clase
+                    // Equipo y cargarlos en el listView
+                    arrayEquipos = new JSONArray(str);
 
-                intent.putExtras(bundle);
+                    for (int contador = 0; contador < arrayEquipos.length(); contador++)
+                    {
+                        equipo = arrayEquipos.getJSONObject(contador);
 
-                startActivity(intent);
+                        Equipo obEquipo = new Equipo();
+                        obEquipo.setIdEquipo(equipo.getInt("IdEquipo"));
+                        obEquipo.setNombreEquipo(equipo.getString("NombreEquipo"));
+                        obEquipo.setDireccion(equipo.getString("Direccion"));
+                        obEquipo.setCategoria(equipo.getString("Categoria"));
+                        obEquipo.setFotoEscudo(equipo.getString("FotoEscudo"));
+                        obEquipo.setUsuario_IdUsuario(equipo.getInt("Usuario_IdUsuario"));
+
+                        listEquipos.add(obEquipo);
+                    }
+                    MiAdapter adapterEquipo = new MiAdapter(getActivity(), listEquipos);
+
+                    lstEquipo = (ListView) view.findViewById(R.id.listViewEquipo);
+                    lstEquipo.setAdapter(adapterEquipo);
+
+                    //---------------------------------------------------------------------------------------------
+                    // Este metodo es para saber en que item de la lista han clicado y muestra un toast montrandolo
+                    //---------------------------------------------------------------------------------------------
+                    lstEquipo.setOnItemClickListener(new AdapterView.OnItemClickListener()
+                    {
+                        @Override
+                        public void onItemClick(AdapterView<?> a, View v, int position, long id)
+                        {
+                            // Procedo a coger el titulo del elemento de la lista seleccionado,
+                            // y a enviarlo a la activity de pregunta para cargar la pregunta
+                            int idEquipoSeleccionado = ((Equipo)a.getItemAtPosition(position)).getIdEquipo();
+                            String nombreEquipoSeleccionado = ((Equipo)a.getItemAtPosition(position)).getNombreEquipo();
+                            //String imagenMonumentoSeleccionado = ((Equipo)a.getItemAtPosition(position)).getLogoEquipo();
+
+                            Bundle bundle = new Bundle();
+
+                            bundle.putInt("idEquipo",idEquipoSeleccionado);
+                            bundle.putString("nombreEquipo", nombreEquipoSeleccionado);
+
+                            Intent intent = new Intent(getActivity(), PartidoConfiguracionActivity.class);
+
+                            intent.putExtras(bundle);
+
+                            startActivity(intent);
+                        }
+                    });
+
+                }catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+                Toast.makeText(getActivity(), "Error de conexion", Toast.LENGTH_SHORT).show();
             }
         });
+
+
+//        // Voy a añadir los items de la lista
+//        Equipo[] datos = new Equipo[]{
+//                new Equipo("Real Betis", "Primera Division", "real_betis"),
+//        };
+//
+//        MiAdapter adapterEquipo = new MiAdapter(getActivity(), datos);
+//
+//        lstEquipo = (ListView) view.findViewById(R.id.listViewEquipo);
+//
+//        lstEquipo.setAdapter(adapterEquipo);
+//
+//        // Este metodo es para saber en que item de la lista han clicado y muestra un toast montrandolo
+//        lstEquipo.setOnItemClickListener(new AdapterView.OnItemClickListener()
+//        {
+//            @Override
+//            public void onItemClick(AdapterView<?> a, View v, int position, long id)
+//            {
+//                // Procedo a coger el titulo del elemento de la lista seleccionado,
+//                // y a enviarlo a la activity de pregunta para cargar la pregunta
+//                String tituloMonumentoSeleccionado = ((Equipo)a.getItemAtPosition(position)).getNombreEquipo();
+//                String imagenMonumentoSeleccionado = ((Equipo)a.getItemAtPosition(position)).getLogoEquipo();
+//
+//
+//                Bundle bundle = new Bundle();
+//
+//                bundle.putString("titulo",tituloMonumentoSeleccionado);
+//                bundle.putString("imagen",imagenMonumentoSeleccionado);
+//
+//                Intent intent = new Intent(getActivity(), EditarActivity.class);
+//
+//                intent.putExtras(bundle);
+//
+//                startActivity(intent);
+//            }
+//        });
     }
 
     @Override
@@ -91,9 +191,10 @@ public class FragmentEquipo extends Fragment {
     public class MiAdapter extends ArrayAdapter<Equipo> {
 
         // Creamos una array de tipo Titular
-        Equipo[] datos;
+        //List<Equipo> datos;
+        List<Equipo> datos;
 
-        public MiAdapter(Context context, Equipo[] datos) {
+        public MiAdapter(Context context, List<Equipo> equipo) {
             //Lo primero que encontramos es el constructor
             // para nuestro adaptador, al que sólo pasaremos el contexto (que normalmente
             // será la actividad desde la que se crea el adaptador) y el array de datos a
@@ -102,8 +203,10 @@ public class FragmentEquipo extends Fragment {
             // principio de este artículo, pasándole nuestros dos parámetros (contexto y
             // datos) y el ID del layout que queremos utilizar (en nuestro caso el nuevo
             // que hemos creado, listitem_titular).
-            super(context, R.layout.lista_equipo, datos);
-            this.datos = datos;
+            super(context, R.layout.lista_equipo, (List<Equipo>) equipo);
+
+            this.datos = equipo;
+
         }
 
         //Redefinimos el método encargado de generar y rellenar con nuestros datos todos
@@ -126,15 +229,15 @@ public class FragmentEquipo extends Fragment {
             // correspondiente según los datos de nuestro array y la posición del
             // elemento actual (parámetro position del método getView()).
             TextView lblTitulo = (TextView) item.findViewById(R.id.textViewNombreEquipo);
-            lblTitulo.setText(datos[position].getNombreEquipo());
+            lblTitulo.setText(datos.get(position).getNombreEquipo());
 
             TextView lblSubtitulo = (TextView) item.findViewById(R.id.textViewCategoriaEquipo);
-            lblSubtitulo.setText(datos[position].getCategoriaEquipo());
+            lblSubtitulo.setText(datos.get(position).getCategoria());
 
             //Imagen
             ImageView imagen = (ImageView) item.findViewById(R.id.imageViewLogoEquipo);
 
-            String nombre=(datos[position].getLogoEquipo());
+            String nombre=(datos.get(position).getFotoEscudo());
 
             switch (nombre) {
                 case "real_betis":
