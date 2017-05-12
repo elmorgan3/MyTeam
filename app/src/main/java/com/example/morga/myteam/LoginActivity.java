@@ -48,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
     Button btnAcceder;
     TextView txtNombre;
     TextView txtPassword;
+    Button btnIrARegistrarse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,7 @@ public class LoginActivity extends AppCompatActivity {
         btnAcceder = (Button)findViewById(R.id.buttonAcceder);
         txtNombre = (TextView)findViewById(R.id.editTextNombre);
         txtPassword = (TextView)findViewById(R.id.editTextPassword);
+        btnIrARegistrarse = (Button)findViewById(R.id.buttonIrActivityRegistrar);
     }
 
     // ----------------------------------------------------------------------
@@ -99,6 +101,12 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void IrARegistrar (View view){
+        Intent intent = new Intent(LoginActivity.this, CrearUsuarioActivity.class);
+
+        startActivity(intent);
     }
 
 

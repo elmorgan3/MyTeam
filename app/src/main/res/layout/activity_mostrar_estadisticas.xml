@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="com.example.morga.myteam.MostrarEstadisticasActivity">
+
+    <include
+        layout="@layout/app_bar_main"
+        layout_width="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gol: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewGol"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gol penati: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewGolPenalti"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gol falta: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewGolFalta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gol PP: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewGolPP"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewEnContra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Gol en contra: " />
+
+            <TextView
+                android:id="@+id/textViewGolEnContra"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Asistencia: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewAsistencia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView35"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tiro: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewTiro"
+                android:layout_width="76dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textView37"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tiro a puerta: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewTiroPuerta"
+                android:layout_width="43dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textView39"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Corner: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewCorner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pase: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewPase"
+                android:layout_width="69dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pase fallido: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewPaseFallido"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textView34"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Robo: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewRobo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/textView49"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Falta: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewFalta"
+                android:layout_width="68dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textView51"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fuera de jugeo: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewFueraJuego"
+                android:layout_width="29dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textView53"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mano: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewMano"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView45"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tarjeta roja: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewTarjetaRoja"
+                android:layout_width="161dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textView47"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="T. amarilla: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewTarjetaAmarilla"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView41"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Parada: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewParada"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textView43"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cambio: "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewCambio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

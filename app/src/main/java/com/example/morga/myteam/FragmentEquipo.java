@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.util.Xml;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -29,10 +31,11 @@ import java.util.List;
 import cz.msebera.android.httpclient.Header;
 
 
-public class FragmentEquipo extends Fragment {
+public class FragmentEquipo extends Fragment implements View.OnClickListener {
 
     ListView lstEquipo;
     String token;
+    Button btnCrearPartido;
 
     public FragmentEquipo() {
         // Required empty public constructor
@@ -40,6 +43,7 @@ public class FragmentEquipo extends Fragment {
 
     public static FragmentEquipo newInstance() {
         FragmentEquipo fragment = new FragmentEquipo();
+
         return fragment;
     }
 
@@ -48,6 +52,9 @@ public class FragmentEquipo extends Fragment {
         super.onCreate(savedInstanceState);
 
         token = MainActivity.DevolverToken();
+
+
+
     }
 
     //--------------------------------
@@ -57,6 +64,21 @@ public class FragmentEquipo extends Fragment {
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
+
+        //Boton que abre una activity para crear un equipo
+        btnCrearPartido = (Button)view.findViewById(R.id.buttonCrearEquipo);
+        btnCrearPartido.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), CrearEquipoActivity.class);
+                startActivity(i);
+
+            }
+        });
+
+
+        // Aqui hacemos el get de todos los equipos del usuario
         AsyncHttpClient client = new AsyncHttpClient();
 
         client.addHeader("Token", token);
@@ -139,50 +161,20 @@ public class FragmentEquipo extends Fragment {
                 Toast.makeText(getActivity(), "Error de conexion", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-//        // Voy a añadir los items de la lista
-//        Equipo[] datos = new Equipo[]{
-//                new Equipo("Real Betis", "Primera Division", "real_betis"),
-//        };
-//
-//        MiAdapter adapterEquipo = new MiAdapter(getActivity(), datos);
-//
-//        lstEquipo = (ListView) view.findViewById(R.id.listViewEquipo);
-//
-//        lstEquipo.setAdapter(adapterEquipo);
-//
-//        // Este metodo es para saber en que item de la lista han clicado y muestra un toast montrandolo
-//        lstEquipo.setOnItemClickListener(new AdapterView.OnItemClickListener()
-//        {
-//            @Override
-//            public void onItemClick(AdapterView<?> a, View v, int position, long id)
-//            {
-//                // Procedo a coger el titulo del elemento de la lista seleccionado,
-//                // y a enviarlo a la activity de pregunta para cargar la pregunta
-//                String tituloMonumentoSeleccionado = ((Equipo)a.getItemAtPosition(position)).getNombreEquipo();
-//                String imagenMonumentoSeleccionado = ((Equipo)a.getItemAtPosition(position)).getLogoEquipo();
-//
-//
-//                Bundle bundle = new Bundle();
-//
-//                bundle.putString("titulo",tituloMonumentoSeleccionado);
-//                bundle.putString("imagen",imagenMonumentoSeleccionado);
-//
-//                Intent intent = new Intent(getActivity(), EditarActivity.class);
-//
-//                intent.putExtras(bundle);
-//
-//                startActivity(intent);
-//            }
-//        });
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_equipo, container, false);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 
     //*****
@@ -234,19 +226,7 @@ public class FragmentEquipo extends Fragment {
             TextView lblSubtitulo = (TextView) item.findViewById(R.id.textViewCategoriaEquipo);
             lblSubtitulo.setText(datos.get(position).getCategoria());
 
-            //Imagen
-            ImageView imagen = (ImageView) item.findViewById(R.id.imageViewLogoEquipo);
 
-            String nombre=(datos.get(position).getFotoEscudo());
-
-            switch (nombre) {
-                case "real_betis":
-                    imagen.setImageResource(R.drawable.real_betis);
-                    break;
-
-
-
-            }
 
             return (item);
         }

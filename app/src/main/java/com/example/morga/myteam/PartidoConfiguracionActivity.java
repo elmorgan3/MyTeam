@@ -37,6 +37,9 @@ public class PartidoConfiguracionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partido_configuracion);
 
+        TextView miToolbar = (TextView)findViewById(R.id.toolbar_title);
+        miToolbar.setText("Previa al partido");
+
         buttonEmpezarPartido = (Button)findViewById(R.id.buttonEmpezarPartido);
         txtFecha = (TextView)findViewById(R.id.textViewFecha);
         etNombreEquipoContrario = (EditText)findViewById(R.id.editTextNombreEquipoContrario);

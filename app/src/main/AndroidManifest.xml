@@ -22,8 +22,11 @@
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".EstadisticasActivity" />
-        <activity android:name=".EditarActivity" />
-        <activity android:name=".PartidoConfiguracionActivity"></activity>
+        <activity android:name=".PartidoConfiguracionActivity" />
+        <activity android:name=".CrearEquipoActivity" />
+        <activity android:name=".ListaPartidosActivity" />
+        <activity android:name=".MostrarEstadisticasActivity" />
+        <activity android:name=".CrearUsuarioActivity"></activity>
     </application>
 
 </manifest>

@@ -9,112 +9,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView7"
+        <ListView
+            android:id="@+id/listViewEquipo"
             android:layout_width="match_parent"
-            android:layout_height="27dp"
-            android:layout_weight="1"
-            android:text="@string/fecha_partido"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
-
-        <EditText
-            android:id="@+id/editText9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="date" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_weight="1" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Nombre del Equipo contrario"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
-
-        <EditText
-            android:id="@+id/editText6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_weight="1" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Numero de la Jornada"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
-
-        <EditText
-            android:id="@+id/editText8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_weight="1" />
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TextView"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            tools:text="¿Local?" />
-
-        <EditText
-            android:id="@+id/editText7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/buttonEmpezarPartido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="EmpezarPartido"
-            android:text="Empezar partido" />
+            android:layout_height="match_parent"
+            android:scrollbars="horizontal|vertical" />
     </LinearLayout>
-
 </FrameLayout>
