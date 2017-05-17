@@ -121,7 +121,7 @@
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:onClick="EmpezarPartido"
-            android:text="Empezar partido"
+            android:text="Ir al partido"
             android:textSize="18sp" />
 
 
